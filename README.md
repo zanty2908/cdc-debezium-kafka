@@ -1,5 +1,4 @@
 # CDC Debezium With Kafka
----
 Change Data Capture (CDC) with:
 - Kafka in KRaft mode
 - Debezium - UI
@@ -7,7 +6,6 @@ Change Data Capture (CDC) with:
 ![alt text](intro.webp "Title")
 
 ## Container
----
 | Name | Port |
 |---|---|
 |Kafka in KRaft mode| 9092 |
@@ -18,7 +16,6 @@ Change Data Capture (CDC) with:
 |Debezium CDC UI | 8090 |
 
 ## Setup
----
 1. Running docker-compose
 ```
 docker-compose up -d
@@ -38,7 +35,6 @@ localhost:8090
 
 
 ## Debezium CDC Configurations
----
 ```json
 {
     "name": "source-connector",
@@ -63,9 +59,9 @@ localhost:8090
 - `database.server.name`: Give any suitable name
 - `topic.prefix`: Specify any Kafka topic name
 - `schema.include.list`: Include schema list
-Ex: Include Multi-schema: `public,inventory,food`
+> Ex: Include Multi-schema: `public,inventory,food`
 - `table.include.list`: Include table list. 
-Ex: Include multi-table: `public.users,public.customers,public.posts`
+> Ex: Include multi-table: `public.users,public.customers,public.posts`
 - `column.include.list`: Include column of table.
-Ex: Include multi-column: `public.users.id,public.users.name`
+> Ex: Include multi-column: `public.users.id,public.users.name`
 
