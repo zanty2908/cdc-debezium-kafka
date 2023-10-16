@@ -1,0 +1,14 @@
+{
+  "name": "filter-column-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "topic.prefix": "test-db-001",
+    "database.hostname": "postgres",
+    "database.user": "postgres",
+    "database.password": "postgres",
+    "database.dbname": "test_db",
+    "schema.include.list": "public",
+    "table.include.list": "public.users",
+    "column.include.list": "public.users.id"
+  }
+}
