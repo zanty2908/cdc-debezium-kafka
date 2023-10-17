@@ -64,4 +64,15 @@ localhost:8090
 > Ex: Include multi-table: `public.users,public.customers,public.posts`
 - `column.include.list`: Include column of table.
 > Ex: Include multi-column: `public.users.id,public.users.name`
+#### Snapshot mode
+The criteria for running a snapshot upon startup of the connector. Select one of the following snapshot options:
+- `always`: The connector runs a snapshot every time that it starts. After the snapshot completes, the connector begins to stream changes from the transaction log.
+- `initial` *(default)*: If the connector does not detect any offsets for the logical server name, it runs a snapshot that captures the current full state of the configured tables. After the snapshot completes, the connector begins to stream changes from the transaction log. 
+- `initial_only`: The connector performs a snapshot as it does for the 'initial' option, but after the connector completes the snapshot, it stops, and does not stream changes from the transaction log.; 
+- `never`: The connector does not run a snapshot. Upon first startup, the connector immediately begins reading from the beginning of the transaction log.
+- `custom`: The connector loads a custom class to specify how the connector performs snapshots. For more information, see Custom snapshotter SPI in the PostgreSQL connector documentation.
 
+## Check and auto restart connectors script
+```sh
+./restart-connectors.sh
+```
